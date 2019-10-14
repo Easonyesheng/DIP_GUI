@@ -17,3 +17,4 @@ ENTRO_G.py is to do binarization by Entropy method.
 
 
 # The Second Project
+It's about convlution using different filters to enhance or blur
