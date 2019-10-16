@@ -5,8 +5,8 @@ It's based on PYQT5 and python-opencv.
 It will contain many DIP algorithms like OTSU, Entropy, different convlution algorithms etc.
 
 # RUN
-  > python /.../ImageInput.py
-
+  > python /.../ImageInput.py  
+  need to change a place -- the 21st line in ImageInput.py. You need to change the path there.
 # The First Project
 It's about very basic algorithm.  
 The GUI is in Imageinput.py, it also get the gray image.  
