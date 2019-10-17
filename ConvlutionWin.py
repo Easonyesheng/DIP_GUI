@@ -90,15 +90,28 @@ class Convlution(QWidget):
         btn_q.move(1000,45)
         btn_q.clicked.connect(QCoreApplication.instance().quit)
 
+        #button -- Edge Detection -- Roberts
+        btn_E_R = QPushButton(self)
+        btn_E_R.setText('Roberts')
+        btn_E_R.move(0,500)
+        btn_E_R.clicked.connect(self.ED_Roberts)
+
+        #button -- Edge Detection -- Prewitt
+        btn_E_P = QPushButton(self)
+        btn_E_P.setText('Prewitt')
+        btn_E_P.move(0,530)
+        btn_E_P.clicked.connect(self.ED_Prewitt)
+
+        #button -- Edge Detection -- Sobel
+        btn_E_S = QPushButton(self)
+        btn_E_S.setText('Sobel')
+        btn_E_S.move(0,560)
+        btn_E_S.clicked.connect(self.ED_Sobel)
 
 
-
-
-
-
+    #--------------------------------------------------function
     def ChangeWin2(self):
         pass
-    
 
     # open image button-pushed event
     def openimage(self):
@@ -127,3 +140,70 @@ class Convlution(QWidget):
         self.label_OriPic.setPixmap(img)
         self.label_GrayPic.setPixmap(pixmap_Gray)
         
+    # Edge Detection using Roberts masks when Button Roberts pushed
+    def ED_Roberts(self):
+        Roberts_1 = np.array(([-1,0],[0,1]))
+        Roberts_2 = np.array(([0,-1],[1,0]))
+        # 不对称卷积核旋转180度
+        Roberts_1 = np.rot90(Roberts_1,2)
+        Roberts_2 = np.rot90(Roberts_2,2)
+
+        Img_ED_R1 = cv2.filter2D(self.img_gray,-1,Roberts_1)
+        Img_ED_R2 = cv2.filter2D(self.img_gray,-1,Roberts_2)
+
+        Img_ED_R = Img_ED_R1 + Img_ED_R2
+
+        # show in label
+        height, width = Img_ED_R.shape
+        bytesPerLine = width
+        QImg_Gray = QImage(Img_ED_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
+        pixmap_Gray = QPixmap.fromImage(QImg_Gray)
+        pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
+        self.label_ED.setPixmap(pixmap_Gray)
+        self.label_EDtxt.setText('Roberts')
+
+    # Edge Detection using Prewitt operator masks
+    def ED_Prewitt(self):
+        Prewitt1 = np.array(([-1,-1,-1],[0,0,0],[1,1,1]))
+        Prewitt2 = np.array(([-1,0,1],[-1,0,1],[-1,0,1]))
+
+        # 卷积核旋转
+        Prewitt1 = np.rot90(Prewitt1,2)
+        Prewitt2 = np.rot90(Prewitt2,2)
+
+        Img_ED_P1 = cv2.filter2D(self.img_gray,-1,Prewitt1)
+        Img_ED_P2 = cv2.filter2D(self.img_gray,-1,Prewitt2)
+
+        Img_ED_P = Img_ED_P1 + Img_ED_P2
+
+        # show
+        height, width = Img_ED_P.shape
+        bytesPerLine = width
+        QImg_Gray = QImage(Img_ED_P.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
+        pixmap_Gray = QPixmap.fromImage(QImg_Gray)
+        pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
+        self.label_ED.setPixmap(pixmap_Gray)
+        self.label_EDtxt.setText('Prewitt')
+
+    # Edge Detection using Sobel operator masks
+    def ED_Sobel(self):
+        Sobel1 = np.array(([-1,-2,-1],[0,0,0],[1,2,1]))
+        Sobel2 = np.array(([-1,0,1],[-2,0,2],[-1,0,1]))
+
+        # 卷积核旋转
+        Sobel1 = np.rot90(Sobel1,2)
+        Sobel2 = np.rot90(Sobel2,2)
+
+        Img_ED_S1 = cv2.filter2D(self.img_gray,-1,Sobel1)
+        Img_ED_S2 = cv2.filter2D(self.img_gray,-1,Sobel2)
+
+        Img_ED_S = Img_ED_S1 + Img_ED_S2
+
+        # show
+        height, width = Img_ED_S.shape
+        bytesPerLine = width
+        QImg_Gray = QImage(Img_ED_S.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
+        pixmap_Gray = QPixmap.fromImage(QImg_Gray)
+        pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
+        self.label_ED.setPixmap(pixmap_Gray)
+        self.label_EDtxt.setText('Sobel')
