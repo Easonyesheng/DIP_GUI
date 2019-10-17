@@ -262,9 +262,11 @@ class picture(QMainWindow):
 
 
 if __name__ == "__main__":
+    #QtCore.QCoreApplication.setLibraryPaths("")
     app = QtWidgets.QApplication(sys.argv)
     my = picture()
     my.show()
+    
     
     sys.exit(app.exec_())
     

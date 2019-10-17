@@ -3,17 +3,16 @@ project 2 window
 Convlution
 '''
 import cv2
-import numpy as numpy
+import numpy as np
 import sys
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-import HisGet
-from HisGet import HistoGet
+
 #from ImageInput import picture
 
-Hispicdir = '/Users/zhangyesheng/Desktop/IGST计算机辅助手术/Project1/His.png'
+
 
 
 class Convlution(QWidget):
