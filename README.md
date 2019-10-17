@@ -6,7 +6,11 @@ It will contain many DIP algorithms like OTSU, Entropy, different convlution alg
 
 # RUN
   > python /.../ImageInput.py  
-  need to change a place -- the 21st line in ImageInput.py. You need to change the path there.
+  need to change some places
+   1.line 21 in ImageInput.py. 
+     You need to change the path there.
+   2.line 35 in ImageInput.py.
+     choose your own Icon
 # The First Project
 It's about very basic algorithm.  
 The GUI is in Imageinput.py, it also get the gray image.  
