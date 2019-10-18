@@ -270,8 +270,8 @@ class Convlution(QWidget):
     # Convlution with DIY Filter
     def DIY_Conv(self):
         size, ok = QInputDialog.getText(self, "Input Your Size", "Size:")
-            if ok :
-                size = int(size)
+        if ok :
+            size = int(size)
 
-                # input a matrix
+            # input a matrix
 
