@@ -274,4 +274,25 @@ class Convlution(QWidget):
             size = int(size)
 
             # input a matrix
+            num_len = size*size
+            filter = np.empty([1,num_len], dtype = float)
+            for i in range(num_len):
+                filter[0][i], ok = QInputDialog.getText(self, "Input Matrix", "A element in matrix:")
+                if ok:
+                    continue
+                else:
+                    break
+            
+            filter = np.reshape(filter,[size,size])
+            filter = np.rot90(filter,2)
+            print(filter)
+            Img_DIY_Conv = cv2.filter2D(self.img_gray, -1, filter)
 
+            # show
+            height, width = Img_DIY_Conv.shape
+            bytesPerLine = width
+            QImg_Gray = QImage(Img_DIY_Conv.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
+            pixmap_Gray = QPixmap.fromImage(QImg_Gray)
+            pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
+            self.label_NR.setPixmap(pixmap_Gray)
+            self.label_NRtxt.setText('DIY Convlution')
