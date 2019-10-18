@@ -19,7 +19,7 @@ class Convlution(QWidget):
     def __init__(self):
         super(Convlution,self).__init__()
         
-        # Window
+        # Window 1200x1050
         self.resize(1200,1050)
         self.setWindowTitle('IGST-Project2')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
@@ -108,6 +108,25 @@ class Convlution(QWidget):
         btn_E_S.move(0,560)
         btn_E_S.clicked.connect(self.ED_Sobel)
 
+        #button -- blur -- Gaussian
+        btn_B_G = QPushButton(self)
+        btn_B_G.setText("Gaussian")
+        btn_B_G.move(1000,500)
+        btn_B_G.clicked.connect(self.B_Gus)
+
+        #button -- blur -- Median
+        btn_B_M = QPushButton(self)
+        btn_B_M.setText("Median")
+        btn_B_M.move(1000,530)
+        btn_B_M.clicked.connect(self.B_Med)
+
+        #button -- DIY convlution
+        btn_DIY = QPushButton(self)
+        btn_DIY.setText("DIY Convlution")
+        btn_DIY.move(1000,560)
+        btn_DIY.clicked.connect(self.DIY_Conv)
+
+
 
     #--------------------------------------------------function
     def ChangeWin2(self):
@@ -115,7 +134,7 @@ class Convlution(QWidget):
 
     # open image button-pushed event
     def openimage(self):
-        imgName, imgType = QFileDialog.getOpenFileName(self,"Open Image","","*.jpg;;*.png;;All Files(*)")
+        imgName, imgType = QFileDialog.getOpenFileName(self,"Open Image","","All Files(*);;*.jpg;;*.png")
         img = QtGui.QPixmap(imgName).scaled(self.label_OriPic.width(),self.label_OriPic.height())
         Image = cv2.imread(imgName)
         self.label_fiilename.setText(imgName)
@@ -207,3 +226,52 @@ class Convlution(QWidget):
         pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
         self.label_ED.setPixmap(pixmap_Gray)
         self.label_EDtxt.setText('Sobel')
+
+
+    # Blur using Gaussian filter
+    def B_Gus(self):
+        size, ok1 = QInputDialog.getText(self, "Input Guassian Filter Size", "Size:")
+        if ok1:
+            size = int(size)
+            delta, ok2 = QInputDialog.getText(self, "Input Variance", "Varience:")
+            if ok2:
+                delta = float(delta)
+
+                Img_B_G = cv2.GaussianBlur(self.img_gray, (size,size), delta)
+
+                # show
+                height, width = Img_B_G.shape
+                bytesPerLine = width
+                QImg_Gray = QImage(Img_B_G.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
+                pixmap_Gray = QPixmap.fromImage(QImg_Gray)
+                pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
+                self.label_NR.setPixmap(pixmap_Gray)
+                self.label_NRtxt.setText('Gaussian')
+
+
+    # Blur using Median filter
+    def B_Med(self):
+        size, ok = QInputDialog.getText(self, "Input Filter Size", "Size:")
+        if ok:
+            size = int(size)
+            Med = np.ones(size)
+            Med = Med/size
+            Img_B_M = cv2.filter2D(self.img_gray,-1,Med)
+
+            # show
+            height, width = Img_B_M.shape
+            bytesPerLine = width
+            QImg_Gray = QImage(Img_B_M.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
+            pixmap_Gray = QPixmap.fromImage(QImg_Gray)
+            pixmap_Gray = pixmap_Gray.scaled(self.label_ED.width(),self.label_ED.height())
+            self.label_NR.setPixmap(pixmap_Gray)
+            self.label_NRtxt.setText('Median')
+
+    # Convlution with DIY Filter
+    def DIY_Conv(self):
+        size, ok = QInputDialog.getText(self, "Input Your Size", "Size:")
+            if ok :
+                size = int(size)
+
+                # input a matrix
+
