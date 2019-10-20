@@ -11,6 +11,8 @@ It will contain many DIP algorithms like OTSU, Entropy, different convlution alg
      You need to change the path there.
    2.line 35 in ImageInput.py.
      choose your own Icon
+
+
 # The First Project
 It's about very basic algorithm.  
 The GUI is in Imageinput.py, it also get the gray image.  
@@ -21,4 +23,11 @@ ENTRO_G.py is to do binarization by Entropy method.
 
 
 # The Second Project
-It's about convlution using different filters to enhance or blur
+It's about convlution using different filters to enhance or blur  
+It includes three classes of convlution  
+    1. Edge detection  
+        using sobel, prewitt and Robert masks
+    2. blur  
+        using Guassian and Median filter  
+    3. DIY Convlution  
+        using your own filter
