@@ -26,7 +26,7 @@ ENTRO_G.py is to do binarization by Entropy method.
 It's about convlution using different filters to enhance or blur  
 It includes three classes of convlution  
     1. Edge detection  
-        using sobel, prewitt and Robert masks
+        using sobel, prewitt and Robert masks  
     2. blur  
         using Guassian and Median filter  
     3. DIY Convlution  
