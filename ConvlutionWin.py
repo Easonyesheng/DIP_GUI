@@ -9,6 +9,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from DE_Win import DEwin
 
 #from ImageInput import picture
 
@@ -21,7 +22,7 @@ class Convlution(QWidget):
         
         # Window 1200x1050
         self.resize(1200,1050)
-        self.setWindowTitle('IGST-Project2')
+        self.setWindowTitle('IGST-Convlution')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
 
         #label1 -- original pic
@@ -74,7 +75,7 @@ class Convlution(QWidget):
         #----------------------------------------------button
         # button -- change window
         btn_CW2 = QPushButton(self)
-        btn_CW2.setText('Project3')
+        btn_CW2.setText('Morphology')
         btn_CW2.move(0,70)
         btn_CW2.clicked.connect(self.ChangeWin2)
 
@@ -130,7 +131,9 @@ class Convlution(QWidget):
 
     #--------------------------------------------------function
     def ChangeWin2(self):
-        pass
+        self.hide()
+        self.DE = DEwin()
+        self.DE.show() 
 
     # open image button-pushed event
     def openimage(self):
@@ -285,7 +288,7 @@ class Convlution(QWidget):
             
             filter = np.reshape(filter,[size,size])
             filter = np.rot90(filter,2)
-            print(filter)
+            #print(filter)
             Img_DIY_Conv = cv2.filter2D(self.img_gray, -1, filter)
 
             # show

@@ -31,7 +31,7 @@ class picture(QMainWindow):
 
         #window
         self.resize(1200,1050)
-        self.setWindowTitle('IGST-Project1')
+        self.setWindowTitle('IGST-Histgram')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
         
         #label1 -- original pic
@@ -111,7 +111,7 @@ class picture(QMainWindow):
 
         # button -- change window
         btn_CW = QPushButton(self)
-        btn_CW.setText('Project2')
+        btn_CW.setText('Convlution')
         btn_CW.move(0,70)
         btn_CW.clicked.connect(self.ChangeWin)
 
