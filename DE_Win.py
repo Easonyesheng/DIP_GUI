@@ -135,7 +135,7 @@ class DEwin(QWidget):
 
         #button -- Basic Operation -- Dilation
         btn_DI = QPushButton(self)
-        btn_DI.setText('Dialtion')
+        btn_DI.setText('Dilation')
         btn_DI.move(1000,75)
         btn_DI.clicked.connect(self.Dilation)
 

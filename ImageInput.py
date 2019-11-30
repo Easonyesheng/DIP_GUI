@@ -16,7 +16,7 @@ import HisGet
 from HisGet import HistoGet
 from OTSU_G import OTSU_GET
 from ENTRO_G import Entropy_get
-from ConvlutionWin import Convlution
+from ConvolutionWin import Convlution
 # 图片存储地址
 Hispicdir = '/Users/zhangyesheng/Desktop/IGST计算机辅助手术/Project1/His.png'
 
@@ -111,7 +111,7 @@ class picture(QMainWindow):
 
         # button -- change window
         btn_CW = QPushButton(self)
-        btn_CW.setText('Convlution')
+        btn_CW.setText('Convolution')
         btn_CW.move(0,70)
         btn_CW.clicked.connect(self.ChangeWin)
 
