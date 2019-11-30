@@ -10,7 +10,7 @@ It will contain many DIP algorithms like OTSU, Entropy, different convlution alg
    1.line 21 in ImageInput.py. 
      You need to change the path there.
    2.line 35 in ImageInput.py.
-     choose your own Icon  
+     choose your own Icon.
    3. etc
 
 # The four operations
