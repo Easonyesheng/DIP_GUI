@@ -24,12 +24,12 @@ It's about very basic algorithm.
 ## Convolution   
 It's about convlution operation using different filters to enhance or blur  
 It includes three classes of convlution  
-    1. Edge detection  
-        using sobel, prewitt and Robert masks  
-    2. blur  
-        using Guassian and Median filter  
-    3. DIY Convlution  
-        using your own filter  
+   1. Edge detection  
+       using sobel, prewitt and Robert masks  
+   2. blur  
+       using Guassian and Median filter  
+   3. DIY Convlution  
+       using your own filter  
 
 ## Morphology  
 It's about morphology operation.  
