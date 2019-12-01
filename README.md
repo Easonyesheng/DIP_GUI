@@ -5,13 +5,10 @@ It's based on PYQT5 and python-opencv.
 It will contain many DIP algorithms like OTSU, Entropy, different convlution algorithms etc.
 
 # RUN
-  > python /.../ImageInput.py  
-  need to change some places(mostly about path)
-   1.line 21 in ImageInput.py. 
-     You need to change the path there.
-   2.line 35 in ImageInput.py.
-     choose your own Icon.
-   3. etc
+   > python /.../ImageInput.py  
+  need to change some places(mostly about path)  
+  Every place about path, like self.pathdir(etc)  
+  
 
 #  Main Operations
 ## Histgram & Thresholding  
