@@ -13,7 +13,7 @@ It will contain many DIP algorithms like OTSU, Entropy, different convlution alg
      choose your own Icon.
    3. etc
 
-# The four operations
+#  Main Operations
 ## Histgram & Thresholding  
 It's about very basic algorithm.  
   1. Input original image.  
@@ -39,7 +39,7 @@ Note: because of pyqt's show problem, I use some save&read trick.
   2. Distance Translation & Conditional Dilation  
   3. Skeleton get & Morphology Edge detection  
 
-# Gray Morphology  
+## Gray Morphology  
 Some Gray Morphology operations.  
   1. Gray Dilation, Erosion, Open, Close.  
   2. Gray Reconstruction. --OBR & CBR  
