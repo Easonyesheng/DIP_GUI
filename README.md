@@ -1,6 +1,6 @@
 # DIP_GUI
 My first repository.  
-It's about a GUI to do DIP, it contain 4 projects.  
+It's about a GUI to do **Digital Image Processing**(DIP), it contain 4 projects.  
 It's based on PYQT5 and python-opencv.  
 It will contain many DIP algorithms like OTSU, Entropy, different convlution algorithms etc.
 
