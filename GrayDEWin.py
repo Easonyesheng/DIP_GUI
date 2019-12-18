@@ -193,6 +193,7 @@ class GEDWin(QWidget):
         https://doc.qt.io/qtforpython/PySide2/QtGui/QImage.html#PySide2.QtGui.PySide2.QtGui.QImage.Format
         https://zhuanlan.zhihu.com/p/31810054
         '''
+        QApplication.processEvents()
         height, width = self.img_gray.shape
         bytesPerLine = width
         QImg_Gray = QImage(self.img_gray.data, width, height, bytesPerLine, QImage.Format_Grayscale8)
@@ -215,6 +216,7 @@ class GEDWin(QWidget):
         img_R = GErosion(self.img_gray,SE)
         toc = time.time()
         # show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -234,6 +236,7 @@ class GEDWin(QWidget):
         img_R = GDilation(self.img_gray,SE)
         toc = time.time()
         # show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -251,6 +254,7 @@ class GEDWin(QWidget):
         img_R = GOpen(self.img_gray,SE)
         toc = time.time()
         # show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -268,6 +272,7 @@ class GEDWin(QWidget):
         img_R = GClose(self.img_gray,SE)
         toc = time.time()
         # show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -287,6 +292,7 @@ class GEDWin(QWidget):
         # img_R = img_R/2 # cannot do this operation
         img_R.astype(np.int)
         #show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -304,6 +310,7 @@ class GEDWin(QWidget):
         # img_R = img_R/2 # cannot do this operation
         img_R.astype(np.int)
         #show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -322,6 +329,7 @@ class GEDWin(QWidget):
         # img_R = img_R/2 # cannot do this operation
         img_R.astype(np.int)
         #show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -334,6 +342,7 @@ class GEDWin(QWidget):
         img_R = OBR(self.img_gray)
 
         #show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -347,6 +356,7 @@ class GEDWin(QWidget):
         img_R = CBR(self.img_gray)
         
         #show
+        QApplication.processEvents()
         height, width = img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(img_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)

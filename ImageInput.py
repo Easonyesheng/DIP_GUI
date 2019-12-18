@@ -1,5 +1,6 @@
 '''
-# Histogram+最优二值
+# Histogra
+# m+最优二值
 主程序
 包括
 界面的定义
@@ -176,6 +177,7 @@ class picture(QMainWindow):
         https://doc.qt.io/qtforpython/PySide2/QtGui/QImage.html#PySide2.QtGui.PySide2.QtGui.QImage.Format
         https://zhuanlan.zhihu.com/p/31810054
         '''
+        QApplication.processEvents()
         height, width = self.img_gray.shape
         bytesPerLine = width
         QImg_Gray = QImage(self.img_gray.data, width, height, bytesPerLine, QImage.Format_Grayscale8)
@@ -227,12 +229,14 @@ class picture(QMainWindow):
     '''
     有一个很奇怪的现象
     按下OTSU键后要点到其他地方（不能在python上？）才能显示
+    # solution : QApplication.processEvents() before the show function
     '''
     def OTSUSET(self):
         self.label_GrayValue.setText("")
         T = OTSU_GET(self.img_gray)
         self.label_OStxt.setText(str(T))
         ot, OSimg = cv2.threshold(self.img_gray,T,255,cv2.THRESH_BINARY)
+        QApplication.processEvents()
         OSheight, OSwidth = OSimg.shape
         OSBytesPerLine = OSwidth
         Qimg_OS = QImage(OSimg.data, OSwidth, OSheight, OSBytesPerLine, QImage.Format_Grayscale8)
@@ -250,6 +254,7 @@ class picture(QMainWindow):
         T = Entropy_get(self.img_gray)
         self.label_ETtxt.setText(str(T))
         ot,ENimg = cv2.threshold(self.img_gray,T,255,cv2.THRESH_BINARY)
+        QApplication.processEvents()
         ENheight,ENwidth = ENimg.shape
         ENBytesPerLine = ENwidth
         Qimg_EN = QImage(ENimg.data, ENwidth, ENheight,ENBytesPerLine,QImage.Format_Grayscale8)

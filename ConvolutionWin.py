@@ -154,6 +154,7 @@ class Convlution(QWidget):
         https://doc.qt.io/qtforpython/PySide2/QtGui/QImage.html#PySide2.QtGui.PySide2.QtGui.QImage.Format
         https://zhuanlan.zhihu.com/p/31810054
         '''
+        QApplication.processEvents()
         height, width = self.img_gray.shape
         bytesPerLine = width
         QImg_Gray = QImage(self.img_gray.data, width, height, bytesPerLine, QImage.Format_Grayscale8)
@@ -176,6 +177,7 @@ class Convlution(QWidget):
         Img_ED_R = Img_ED_R1 + Img_ED_R2
 
         # show in label
+        QApplication.processEvents()
         height, width = Img_ED_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(Img_ED_R.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -199,6 +201,7 @@ class Convlution(QWidget):
         Img_ED_P = Img_ED_P1 + Img_ED_P2
 
         # show
+        QApplication.processEvents()
         height, width = Img_ED_P.shape
         bytesPerLine = width
         QImg_Gray = QImage(Img_ED_P.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -222,6 +225,7 @@ class Convlution(QWidget):
         Img_ED_S = Img_ED_S1 + Img_ED_S2
 
         # show
+        QApplication.processEvents()
         height, width = Img_ED_S.shape
         bytesPerLine = width
         QImg_Gray = QImage(Img_ED_S.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -243,6 +247,7 @@ class Convlution(QWidget):
                 Img_B_G = cv2.GaussianBlur(self.img_gray, (size,size), delta)
 
                 # show
+                QApplication.processEvents()
                 height, width = Img_B_G.shape
                 bytesPerLine = width
                 QImg_Gray = QImage(Img_B_G.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -262,6 +267,7 @@ class Convlution(QWidget):
             Img_B_M = cv2.filter2D(self.img_gray,-1,Med)
 
             # show
+            QApplication.processEvents()
             height, width = Img_B_M.shape
             bytesPerLine = width
             QImg_Gray = QImage(Img_B_M.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -292,6 +298,7 @@ class Convlution(QWidget):
             Img_DIY_Conv = cv2.filter2D(self.img_gray, -1, filter)
 
             # show
+            QApplication.processEvents()
             height, width = Img_DIY_Conv.shape
             bytesPerLine = width
             QImg_Gray = QImage(Img_DIY_Conv.data, width, height,bytesPerLine, QImage.Format_Grayscale8)

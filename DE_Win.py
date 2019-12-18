@@ -233,6 +233,7 @@ class DEwin(QWidget):
         https://doc.qt.io/qtforpython/PySide2/QtGui/QImage.html#PySide2.QtGui.PySide2.QtGui.QImage.Format
         https://zhuanlan.zhihu.com/p/31810054
         '''
+        QApplication.processEvents()
         height, width = self.img_gray.shape
         bytesPerLine = width
         QImg_Gray = QImage(self.img_gray.data, width, height, bytesPerLine, QImage.Format_Grayscale8)
@@ -297,6 +298,7 @@ class DEwin(QWidget):
         name = self.path+'Dia2.jpg'
         cv2.imwrite(name,Img_DR_b)
         Im_show = cv2.imread(name,-1) 
+        QApplication.processEvents()
         bytesPerLine = width
         QImg_D = QImage(Im_show.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
         pixmap_D = QPixmap.fromImage(QImg_D)
@@ -342,6 +344,7 @@ class DEwin(QWidget):
         cv2.imwrite(name,Img_ER_b)
         Im_show = cv2.imread(name,-1) 
 
+        QApplication.processEvents()
         height, width = Img_ER.shape
         bytesPerLine = width
         QImg_D = QImage(Im_show.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -368,6 +371,7 @@ class DEwin(QWidget):
         name = self.path+'Open.jpg'
         cv2.imwrite(name,Img_ER_DR)
         Im_show = cv2.imread(name,-1) 
+        QApplication.processEvents()
         height, width = Img_ER.shape
         bytesPerLine = width
         QImg_D = QImage(Im_show.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -395,6 +399,7 @@ class DEwin(QWidget):
         name = self.path+'Close.jpg'
         cv2.imwrite(name,Img_DR_ER)
         Im_show = cv2.imread(name,-1) 
+        QApplication.processEvents()
         height, width = Img_DR_ER.shape
         bytesPerLine = width
         QImg_D = QImage(Im_show.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -415,6 +420,7 @@ class DEwin(QWidget):
 
         # show
         Im_show = cv2.imread(name,-1) 
+        QApplication.processEvents()
         height, width = Img_R.shape
         bytesPerLine = width
         QImg_Gray = QImage(Im_show.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
@@ -432,6 +438,7 @@ class DEwin(QWidget):
         cv2.imwrite(name,Img_R)
 
         # show
+        QApplication.processEvents()
         Im_show = cv2.imread(name,-1) 
         height, width = Img_R.shape
         bytesPerLine = width
@@ -453,6 +460,7 @@ class DEwin(QWidget):
         cv2.imwrite(name,Img_R)
 
         # show
+        QApplication.processEvents()
         Im_show = cv2.imread(name,-1) 
         height, width = Img_R.shape
         bytesPerLine = width
@@ -472,6 +480,7 @@ class DEwin(QWidget):
         cv2.imwrite(name,Img_R)
 
         # show
+        QApplication.processEvents()
         Im_show = cv2.imread(name,-1) 
         height, width = Img_R.shape
         bytesPerLine = width
@@ -493,6 +502,7 @@ class DEwin(QWidget):
         cv2.imwrite(name,Img_R)
 
         # show
+        QApplication.processEvents()
         Im_show = cv2.imread(name,-1) 
         height, width = Img_R.shape
         bytesPerLine = width
@@ -560,6 +570,7 @@ class DEwin(QWidget):
                 
 
             # show img_R
+            QApplication.processEvents()
             Im_show = cv2.imread(self.path+'/ConD/'+str(c)+'.jpg',0)
             height, width = Im_show.shape
             bytesPerLine = width
