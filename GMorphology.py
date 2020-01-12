@@ -37,8 +37,8 @@ def GDilation(img,SE):
             # if np.max(mat) != np.min(mat): # cannot become faster
             mat = mat + SE
             max = int(np.max(mat))
-            img_R[i-gap:i+gap+1,j-gap:j+gap+1] = max
-       
+            # img_R[i-gap:i+gap+1,j-gap:j+gap+1] = max
+            img_R[i,j] = max
     return img_R
 
 
@@ -60,7 +60,8 @@ def GErosion(img,SE ):
             mat = GetTheLittle(SE_h,img,i,j)       
             mat = abs(mat - SE)
             min = int(np.min(mat))
-            img_R[i-gap:i+gap+1,j-gap:j+gap+1] = min
+            # img_R[i-gap:i+gap+1,j-gap:j+gap+1] = min
+            img_R[i,j]=min
     
     return img_R
 
@@ -155,7 +156,7 @@ if __name__ == "__main__":
     path = '/Users/zhangyesheng/Desktop/IGST计算机辅助手术/Project1/pictures/'
     img = cv2.imread(imgname,0)
     # cv2.imwrite(path+'Ori.jpg',img)
-    # SE = np.ones([3,3],dtype='int')
+    SE = np.ones([5,5],dtype='int')
     # img_R = GClose(img, SE)
-    img_R = OBR(img)
-    cv2.imwrite(path+'OBR.jpg',img_R)
+    img_R = GDilation(img,SE )
+    cv2.imwrite(path+'GD.jpg',img_R)

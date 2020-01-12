@@ -1,5 +1,6 @@
 '''
 Distance transform & Skeleton
+最后面的main函数里的path需要改变
 '''
 
 import cv2

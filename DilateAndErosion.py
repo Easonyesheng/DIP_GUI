@@ -1,5 +1,5 @@
 '''
-Code to realize Dilation and Erosion
+Code to realize Dilation and Erosion & conditional dilation
 Input : Binary image & Structure Element
 Do not waste time in meaningless calculate!
 '''
