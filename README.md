@@ -1,9 +1,7 @@
 # DIP_GUI
 
 My first repository.  
-It's about a GUI to do **Digital Image Processing**(DIP), it contain 4 projects.  
-It's based on PYQT5 and python-opencv.  
-It will contain many DIP algorithms like OTSU, Entropy, different convlution algorithms etc.
+It's a GUI based on PYQT5 and python-opencv to perform **Digital Image Processing**(DIP) which contains 4 projects.  
 
 ## Environment  
 
@@ -14,14 +12,13 @@ It will contain many DIP algorithms like OTSU, Entropy, different convlution alg
 ## RUN
 
    > python /.../ImageInput.py  
-  need to change some places(mostly about path)  
-  Every place about path, like self.pathdir(etc)  
+  Before running, must set the right path parameters.  
   
 ## Main Operations
 
 ### Histgram & Thresholding  
 
-It's about very basic algorithm.  
+This project contains some basic algorithms.  
 
   1. Input original image.  
   2. Get the Gary image.  
@@ -30,7 +27,7 @@ It's about very basic algorithm.
 
 ### Convolution  
 
-It's about convlution operation using different filters to enhance or blur  
+This part is about convlution operation using different filters to enhance or blur  
 It includes three classes of convlution  
 
    1. Edge detection  
