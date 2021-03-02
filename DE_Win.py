@@ -17,6 +17,7 @@ from PyQt5.QtCore import *
 from DilateAndErosion import DilationGet, ErosionGet, GetTheLittle
 from DisAndSlec import *
 from GrayDEWin import GEDWin
+from settings import  *
 
 
 class DEwin(QWidget):

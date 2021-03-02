@@ -17,6 +17,8 @@ from PyQt5.QtCore import *
 import sys
 from GMorphology import *
 from DilateAndErosion import GetTheLittle
+from settings import  *
+
 
 class GEDWin(QWidget):
     def __init__(self):

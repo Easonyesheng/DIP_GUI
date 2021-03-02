@@ -18,8 +18,7 @@ from HisGet import HistoGet
 from OTSU_G import OTSU_GET
 from ENTRO_G import Entropy_get
 from ConvolutionWin import Convlution
-# 图片存储地址
-Hispicdir = '/Users/zhangyesheng/Desktop/IGST计算机辅助手术/Project1/His.png'
+from settings import *
 
 
 # 界面对象 -- project 1 Window
