@@ -1,7 +1,7 @@
 # DIP_GUI
 
 My first repository.  
-It's a GUI based on PYQT5 and python-opencv to perform **Digital Image Processing**(DIP) which contains 4 projects.  
+It's a GUI based on PYQT5 and python-opencv to perform **Digital Image Process**(DIP) which contains 4 projects.  
 
 ## Environment  
 
@@ -18,7 +18,7 @@ It's a GUI based on PYQT5 and python-opencv to perform **Digital Image Processin
 
 ### Histgram & Thresholding  
 
-This project contains some basic algorithms.  
+This part contains some basic algorithms.  
 
   1. Input original image.  
   2. Get the Gary image.  
@@ -27,7 +27,7 @@ This project contains some basic algorithms.
 
 ### Convolution  
 
-This part is about convlution operation using different filters to enhance or blur  
+This part contains convlution operations using different filters to enhance or blur images.  
 It includes three classes of convlution  
 
    1. Edge detection  
@@ -39,18 +39,18 @@ It includes three classes of convlution
 
 ### Morphology  
 
-It's about morphology operation.  
-You can set your own SE size and check the runing time.  
+It's about morphology operations.  
+You can set your own SE size and check the running time.  
 Note: because of pyqt's show problem, I use some save&read trick.  
 
   1. Basic operations including Dilation, Erosion, open and close.  
-  2. Distance Translation & Conditional Dilation  
-  3. Skeleton get & Morphology Edge detection  
+  2. Distance Translation & Conditional Dilation.  
+  3. Skeleton get & Morphology Edge detection.  
 
 ### Gray Morphology  
 
 Some Gray Morphology operations.  
 
   1. Gray Dilation, Erosion, Open, Close.  
-  2. Gray Reconstruction. --OBR & CBR  
+  2. Gray Reconstruction. --OBR & CBR.  
   3. Gray Moorphology Gradient.  
