@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import sys
 from GMorphology import *
-from DilateAndErosion import GetTheLittle
+from models.DilateAndErosion import GetTheLittle
 from settings import  *
 
 
@@ -30,7 +30,7 @@ class GEDWin(QWidget):
 
         # Window 1200x1050
         self.resize(1200,1050)
-        self.setWindowTitle('IGST-GMorphology')
+        self.setWindowTitle('GMorphology')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
 
         #label1 -- original pic

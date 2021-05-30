@@ -9,7 +9,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from DE_Win import DEwin
+from windows.DE_Win import DEwin
 from settings import  *
 #from ImageInput import picture
 
@@ -22,7 +22,7 @@ class Convlution(QWidget):
         
         # Window 1200x1050
         self.resize(1200,1050)
-        self.setWindowTitle('IGST-Convlution')
+        self.setWindowTitle('Convlution')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
 
         #label1 -- original pic
@@ -112,19 +112,19 @@ class Convlution(QWidget):
         #button -- blur -- Gaussian
         btn_B_G = QPushButton(self)
         btn_B_G.setText("Gaussian")
-        btn_B_G.move(1000,500)
+        btn_B_G.move(0,700)
         btn_B_G.clicked.connect(self.B_Gus)
 
         #button -- blur -- Median
         btn_B_M = QPushButton(self)
         btn_B_M.setText("Median")
-        btn_B_M.move(1000,530)
+        btn_B_M.move(0,730)
         btn_B_M.clicked.connect(self.B_Med)
 
         #button -- DIY convlution
         btn_DIY = QPushButton(self)
         btn_DIY.setText("DIY Convlution")
-        btn_DIY.move(1000,560)
+        btn_DIY.move(1000,500)
         btn_DIY.clicked.connect(self.DIY_Conv)
 
 

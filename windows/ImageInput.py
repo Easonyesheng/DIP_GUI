@@ -13,11 +13,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import numpy as np
 import cv2
-import HisGet
-from HisGet import HistoGet
-from OTSU_G import OTSU_GET
-from ENTRO_G import Entropy_get
-from ConvolutionWin import Convlution
+
+from models.ThredSeg import *
+from windows.ConvolutionWin import Convlution
 from settings import *
 
 
@@ -30,13 +28,13 @@ class picture(QMainWindow):
         self.Image = []
 
         #window
-        self.resize(1200,1050)
-        self.setWindowTitle('IGST-Histgram')
+        self.resize(win_h,win_w)
+        self.setWindowTitle('Basic')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
         
         #label1 -- original pic
         self.label_OriPic = QLabel(self)
-        self.label_OriPic.setFixedSize(400,400)
+        self.label_OriPic.setFixedSize(small_win_size,small_win_size)
         self.label_OriPic.move(120,55)
         self.label_OriPic.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
         self.label_Oritxt = QLabel(self)
@@ -83,7 +81,8 @@ class picture(QMainWindow):
 
         #label6 -- 'Threshold' txt
         self.label_THretxt = QLabel(self)
-        self.label_THretxt.move(1020,470)
+        # self.label_THretxt.move(1020,470)
+        self.label_THretxt.move(0,470)
         self.label_THretxt.setText('Threshold Way:')
 
         #label7 -- gray thresheld show
@@ -95,17 +94,17 @@ class picture(QMainWindow):
         self.label_GVtxt.move(1000,570)
         self.label_GVtxt.setText('Gray Threshold:')
 
-        #label8 -- OTSU threshold txt
-        self.label_OStxt = QLabel(self)
-        self.label_OStxt.setFixedSize(20,20)
-        self.label_OStxt.move(1120,505)
-        self.label_OStxt.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
+        # #label8 -- OTSU threshold txt
+        # self.label_OStxt = QLabel(self)
+        # self.label_OStxt.setFixedSize(20,20)
+        # self.label_OStxt.move(1120,505)
+        # self.label_OStxt.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
 
-        #label9 -- Entropy threshold txt
-        self.label_ETtxt = QLabel(self)
-        self.label_ETtxt.setFixedSize(20,20)
-        self.label_ETtxt.move(1120,535)
-        self.label_ETtxt.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
+        # #label9 -- Entropy threshold txt
+        # self.label_ETtxt = QLabel(self)
+        # self.label_ETtxt.setFixedSize(20,20)
+        # self.label_ETtxt.move(1120,535)
+        # self.label_ETtxt.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
 
         #——----------------------------------------------------------button
 
@@ -124,19 +123,22 @@ class picture(QMainWindow):
         #button -- quit
         btn_q = QPushButton(self)
         btn_q.setText('Quit')
+        # btn_q.move(1000,45)
         btn_q.move(1000,45)
         btn_q.clicked.connect(QCoreApplication.instance().quit)
 
         #button -- OTSU
         btn_OS = QPushButton(self)
         btn_OS.setText('OTSU')
-        btn_OS.move(1020,500)
+        # btn_OS.move(1020,500)
+        btn_OS.move(0,500)
         btn_OS.clicked.connect(self.OTSUSET)
 
         #button -- entropy
         btn_En = QPushButton(self)
         btn_En.setText('Entropy')
-        btn_En.move(1020,530)
+        # btn_En.move(1020,530)
+        btn_En.move(0,530)
         btn_En.clicked.connect(self.EntroGet)
 
         #---------------------------------------------------------slide

@@ -12,7 +12,7 @@ SE size is 3x3 for all situation
 
 import cv2
 import numpy as np 
-from DilateAndErosion import GetTheLittle
+from models.DilateAndErosion import GetTheLittle
 import math
 
 

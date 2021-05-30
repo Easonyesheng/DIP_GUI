@@ -14,9 +14,10 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from DilateAndErosion import DilationGet, ErosionGet, GetTheLittle
-from DisAndSlec import *
-from GrayDEWin import GEDWin
+
+from models.DilateAndErosion import DilationGet, ErosionGet, GetTheLittle
+
+from windows.GrayDEWin import GEDWin
 from settings import  *
 
 
@@ -35,7 +36,7 @@ class DEwin(QWidget):
 
         # Window 1200x1050
         self.resize(1200,1050)
-        self.setWindowTitle('IGST-Morphology')
+        self.setWindowTitle('Morphology')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
 
         #label1 -- original pic
