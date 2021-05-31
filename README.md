@@ -11,7 +11,7 @@ It's a GUI based on PYQT5 and python-opencv to perform **Digital Image Process**
 
 ## RUN
 
-   > python /.../ImageInput.py  
+   > python /.../Demo.py  
   Before running, must set the right path parameters.  
   
 ## Main Operations
