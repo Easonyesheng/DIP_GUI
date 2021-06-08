@@ -53,6 +53,6 @@ Some Gray Morphology operations.
   2. Gray Reconstruction. --OBR & CBR.  
   3. Gray Morphology Gradient.  
 
-## Reference
+## Contributor
 
-https://github.com/Easonyesheng/DIP_GUI
+[LucyT](https://github.com/lucyttttt)
